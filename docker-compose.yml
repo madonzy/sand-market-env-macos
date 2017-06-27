@@ -11,6 +11,7 @@ services:
         image: magento/magento2devbox-web:latest
         volumes:
           - "./shared/webroot:/home/magento2/magento2"
+          - "./shared/sample-data:/home/magento2/magento2-sample-data"
           - "~/.composer:/home/magento2/.composer"
           - "~/.ssh:/home/magento2/.ssh"
           - "./shared/logs/apache2:/var/log/apache2"
@@ -34,7 +35,6 @@ services:
           - MAGENTO_DOWNLOAD_SOURCES_COMPOSER=0
           - MAGENTO_EDITION=
           - MAGENTO_VERSION=2.1.6
-          - MAGENTO_SAMPLE_DATA_INSTALL=1
           - MAGENTO_DOWNLOAD_SOURCES_CLOUD=0
           - MCLOUD_USERNAME=
           - MCLOUD_PASSWORD=
