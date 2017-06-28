@@ -34,5 +34,6 @@ if [ "$(ls -A ./shared/sample-data)" ]; then
 	docker-compose exec --user magento2 web php /home/magento2/magento2/bin/magento setup:upgrade
     
     echo 'Reindexing (this can take a while)'
+    docker-compose exec --user magento2 web rm -rf magento2/var
     docker-compose exec --user magento2 web php /home/magento2/magento2/bin/magento indexer:reindex
 fi
