@@ -20,6 +20,7 @@ if [ "$(ls -A ./shared/sample-data)" ]; then
 
 	echo 'Install Sample Data'
 	echo 'Copy Sample Data modules'
+	touch ./shared/sample-data/sync-wait
 	cp -rf ./shared/sample-data ./sample-data
 	docker cp sample-data sand_market_box_web:/var/www
 	rm -rf sample-data
@@ -36,4 +37,5 @@ if [ "$(ls -A ./shared/sample-data)" ]; then
     echo 'Reindexing (this can take a while)'
     docker-compose exec --user magento2 web rm -rf magento2/var
     docker-compose exec --user magento2 web php /home/magento2/magento2/bin/magento indexer:reindex
+
 fi
