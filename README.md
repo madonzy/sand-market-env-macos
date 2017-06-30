@@ -6,6 +6,7 @@ Docker instalation for SandMarket project for MacOS.
 * git clone --recursive git@github.com:madonzy/sand-market-env-macos.git SandMarket
 * cd SandMarket
 * sudo ./m2devbox-init.sh
+* sudo ./m2devbox-sample-data-init.sh
 
 
 ### Urls
