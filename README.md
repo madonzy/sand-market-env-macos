@@ -1,6 +1,6 @@
 Docker instalation for SandMarket project for MacOS.
 
-### Installation
+## Installation
 
 * mkdir SandMarket
 * git clone --recursive git@github.com:madonzy/sand-market-env-macos.git SandMarket
@@ -8,20 +8,19 @@ Docker instalation for SandMarket project for MacOS.
 * sudo ./m2devbox-init.sh
 * sudo ./m2devbox-sample-data-init.sh
 
-
-### Urls
+## Urls
 **Frontend**: http://127.0.0.1:32772/
 
 **Backend**: http://127.0.0.1:32772/admin/
 
-### Ports:
+## Ports:
 **HTTP**: 32772,
 
 **SSH**: 32776,
 
 **MySQL**: 32774
 
-### Access
+## Access
 **MySQL**: root:root
 
 **Admin panel**: admin:admin123
