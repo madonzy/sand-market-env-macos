@@ -5,6 +5,9 @@ docker-compose up --build -d
 web_port=$(docker-compose port web 80)
 web_port=${web_port#*:}
 
+echo 'Setting new magento2 linux user password'
+docker-compose exec web passwd magento2
+
 echo 'Copy Webroot'
 cp -rf ./shared/webroot ./magento2
 docker cp magento2 sand_market_box_web:/var/www
@@ -31,7 +34,7 @@ if [ "$(ls -A ./shared/sample-data)" ]; then
 	docker-compose exec web php -f /home/magento2/magento2-sample-data/dev/tools/build-sample-data.php -- --ce-source="/home/magento2/magento2"
 	docker-compose exec web chown -R :magento2 /home/magento2/magento2-sample-data
 	docker-compose exec --user magento2 web find /home/magento2/magento2-sample-data -type d -exec chmod g+ws {} \;
-	docker-compose exec --user magento2 web rm -rf /home/magento2/magento2-sample-data/cache/* /home/magento2/magento2-sample-data/page_cache/* /home/magento2/magento2-sample-data/generation/*
+	docker-compose exec --user magento2 web rm -rf /home/magento2/magento2/cache/* /home/magento2/magento2/page_cache/* /home/magento2/magento2/generation/*
 	docker-compose exec --user magento2 web php /home/magento2/magento2/bin/magento setup:upgrade
     
     echo 'Reindexing (this can take a while)'
